@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>鷲尾美紀</title>
+    <meta name="description" content="先生について" />
+    <meta name="viewport" content="width=device-width" />
+  </head>
+  <body>
+    <header class="header"></header>
+    <main class="main"></main>
+    <body>
+      <h1>鷲尾美紀</h1>
+      <p><strong>出身地：</strong>広島県廿日市市</p>
+      <p><strong>趣味：</strong>野球観戦、コーヒー作り</p>
+      <p><strong>キャンパス：</strong>ナゴヤドーム前</p>
+      <p><strong>学部：</strong>都市情報</p>
+      <p><strong>専門分野：</strong>応用数学</p>
+      <p><strong>野球チーム：</strong>広島東洋カープ⚾</p>
+      <p><strong>好きな動物：</strong>猫</p>
+      <p><strong>好きな音楽：</strong>Mr.Children</p>
+
+      <h2>連絡先等</h2>
+      <dl>
+        <dt>電話番号</dt>
+        <dd>0120-123-456</dd>
+        <dt>メールアドレス</dt>
+        <dd>hoge@hogehoge.com</dd>
+        <dt>応答可能時間</dt>
+        <dd></dd>
+      </dl>
+
+      <!--応答可能時間のテーブル-->
+      <table>
+        <tbody>
+          <tr style="background-color: #3a4652; color: #f8f8f8">
+            <td style="background-color: #d84473">日</td>
+            <td>月</td>
+            <td>火</td>
+            <td>水</td>
+            <td>木</td>
+            <td>金</td>
+            <td style="background-color: #4490d8">土</td>
+          </tr>
+          <tr style="color: #5f6368">
+            <td>✕</td>
+            <td>12:00-13:00</td>
+            <td>16:00-19:00</td>
+            <td>✕</td>
+            <td>✕</td>
+            <td>✕</td>
+            <td>10:00-12:00</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>コメント欄</h2>
+      <form
+        method="POST"
+        action="{{url_for('comment_contents',professor_id=professor.professor_id)}}"
+      >
+        <label for="user_id">学籍番号</label>
+        <input type="text" id="user_id" name="user_id" required /><br />
+
+        <label for="professor_number">教授ID(10と入力してください)</label>
+        <input
+          type="text"
+          id="professor_number"
+          name="professor_number"
+          required
+        /><br />
+
+        <label for="comment">コメント:</label>
+        <textarea
+          id="comment"
+          name="comment"
+          rows="5"
+          cols="50"
+          required
+        ></textarea
+        ><br />
+
+        <button type="submit">投稿する</button>
+      </form>
+      <h3>過去のコメント</h3>
+      <ul>
+        {% for review in reviews %}
+        <li>{{review.user_id}}:{{review.comment}}</li>
+        {% endfor%}
+      </ul>
+    </div>
+    </body>
+    <footer class="footer"></footer>
+  </body>
+</html>
